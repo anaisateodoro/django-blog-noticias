@@ -1,9 +1,9 @@
-# Desafio Final - Blog de Notícias 🚧 Squad Grace-Hopper
+# Desafio Final - 🚧Blog de Notícias | Squad Grace-Hopper
 
 ![Badge em Desenvolvimento](https://img.shields.io/static/v1?label=STATUS&message=CONSTRU%C3%87%C3%83O&color=GREEN&style=for-the-badge)
 
 
-### 🚀 Navegação do README:
+### 🚀 Navegação do readme:
 
 - [Organização da equipe no Projeto Final](#organização-da-equipe-no-projeto-final-📍)
 - [Tecnologias utilizadas [Back-end | Front-end]](#tecnologias-utilizadas-back-end--front-end)
@@ -15,12 +15,12 @@
 
 <br>
 <div style="text-align: center;">
-    <img src="https://github.com/anaisateodoro/DesafioFinal_SquadGraceHopper/assets/70113922/6c29fd60-e288-42fe-ba9e-aecb2d641b44" alt="Blog portal de notícias" width="300" style="display: block; margin: 0 auto;">
+    <img src="https://github.com/anaisateodoro/django-blog-noticias/assets/70113922/294ca833-4eab-4bad-b05c-53a97d17d67a" alt="Blog portal de notícias" width="300" style="display: block; margin: 0 auto;">
 </div>
-
+<br>
 <br>
 
-# Organização da equipe no Projeto Final 📍
+# Organização da equipe 👍
 
 - Realizamos uma reunião inicial de planejamento para discutir o escopo do projeto, requisitos e definir metas e prioridades.
 - Utilizaremos a ferramenta do Trello com uso do Kanban para manter a equipe na mesma página e seguir o trabalho com fluidez na  organização do projeto.
@@ -30,7 +30,7 @@
 - A data final de entrega do projeto é dia 12/04 e estamos trabalhando para garantir que todas as tarefas sejam concluídas até essa data.
 
 
-# Tecnologias utilizadas [Back-end | Front-end]
+# Tecnologias utilizadas [Back-end | Front-end]🎯
 * Python 3
 * Django
 * HTML
@@ -38,7 +38,7 @@
 * Bootstrap
 
 
-# Requisitos Mínimos
+# Requisitos Mínimos 🧭
 **Windows:**
 
 1. Acesse o site oficial do Python (https://www.python.org/downloads/).
@@ -68,7 +68,7 @@ onde efetuou o clone do repositório.
 
 💡 Utilize os seguintes comandos no terminal:
 
-1. Clone o projeto <code>git clone https://github.com/anaisateodoro/DesafioFinal_SquadGraceHopper </code>
+1. Clone o projeto <code>git clone https://github.com/anaisateodoro/django-blog-noticias.git </code>
 2. Entre no diretório do projeto <code>cd django-blog-noticias </code>
 3. Create a Virtual Environment :-
     * no Windows <code>python -m venv env </code>
