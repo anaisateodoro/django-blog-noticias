@@ -24,12 +24,3 @@ urlpatterns = [
     path('', include('blog.urls')),
 ]
 
-# Sitemap configuration
-sitemaps = {
-    "posts": PostSitemap,
-}
-urlpatterns = [
-        
-.......... 
-   path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),        
-.........]
