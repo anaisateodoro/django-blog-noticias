@@ -20,7 +20,7 @@ from django.contrib.sitemaps.views import sitemap #Sitemap view
 from oursite.sitemaps import PostSitemap   #Sitemap view
 from django.conf import settings #Import settings module to managing media files   
 from django.conf.urls.static import static #Import static module  to managing media files 
-from oursite import views
+
 
 
 urlpatterns = [
