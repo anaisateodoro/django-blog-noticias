@@ -28,18 +28,29 @@
         {% endfor %}
       </div>
     </div>
-    <div class="col-md-8 card mb-4 mt-3">
+    <div class="col-12 col-md-8 card mb-4 mt-3">
       <div class="card-body">
         {% if new_comment %}
         <div class="alert alert-success" role="alert">
-          Your comment is awaiting moderation
+          Seu comentário está aguardando aprovação
         </div>
         {% else %}
-        <h3>Leave a comment</h3>
         <form method="post" style="margin-top: 1.3em;">
-          {{ comment_form.as_p }}
+          <h3>Deixe um comentário</h3>
+          <div class="form-group">
+            <label for="{{ comment_form.name.auto_id }}">{{ comment_form.name.label }}</label>
+            <input type="text" class="form-control" id="{{ comment_form.name.auto_id }}" name="{{ comment_form.name.html_name }}" value="{{ comment_form.name.value|default_if_none:'' }}" required>
+          </div>
+          <div class="form-group">
+            <label for="{{ comment_form.email.auto_id }}">{{ comment_form.email.label }}</label>
+            <input type="email" class="form-control" id="{{ comment_form.email.auto_id }}" name="{{ comment_form.email.html_name }}" value="{{ comment_form.email.value|default_if_none:'' }}" required>
+          </div>
+          <div class="form-group">
+            <label for="{{ comment_form.body.auto_id }}">{{ comment_form.body.label }}</label>
+            <textarea class="form-control" id="{{ comment_form.body.auto_id }}" name="{{ comment_form.body.html_name }}"required>{{ comment_form.body.value|default_if_none:'' }}</textarea>
+          </div>
           {% csrf_token %}
-          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+          <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
         </form>
         {% endif %}
       </div>
