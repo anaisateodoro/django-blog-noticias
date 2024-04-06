@@ -101,7 +101,10 @@ onde efetuou o clone do repositório.
 
 - Em construção
 
+![tree_diretorio](https://github.com/anaisateodoro/django-blog-noticias/assets/70113922/b9f21d85-ca87-43a8-a2c5-80f080abf5a4)
 
+
+<br>
 # Padrões dos commits - Tipo e descrição 💻
 
 <table>

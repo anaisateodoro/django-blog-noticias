@@ -10,7 +10,7 @@ class PostAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
 
-
+admin.site.register(Post, PostAdmin)
 @admin.register(Comment)
 class CommentAdm(admin.ModelAdmin):
     list_display = ('name', 'body', 'post', 'created_on', 'active')
@@ -22,4 +22,3 @@ class CommentAdm(admin.ModelAdmin):
         queryset.update(active=True)
     approve_comments.short_description = 'Approve comments'
 
-admin.site.register(Post, PostAdmin)
