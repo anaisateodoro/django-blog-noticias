@@ -5,8 +5,9 @@
 
 ### 🚀 Navegação do readme:
 
-- [Organização da equipe no Projeto Final](#organização-da-equipe-no-projeto-final-📍)
-- [Tecnologias utilizadas [Back-end | Front-end]](#tecnologias-utilizadas-back-end--front-end)
+- [Organização da equipe](#organização-da-equipe-👍)
+- [Tecnologias utilizadas [Back-end | Front-end]](#tecnologias-utilizadas-back-end--front-end🎯)
+- [Requisitos Mínimos](#requisitos-mínimos-🧭)
 - [Estrutura do Diretório com os arquivos e pastas](#estrutura-do-diretório-arquivos-e-pastas)
 - [Instalação e criação do Ambiente Virtual](#instalação-e-criação-de-ambiente-virtual-🔧)
 - [Padrões de Commit](#padrões-dos-commits---tipo-e-descrição-💻)
@@ -31,6 +32,7 @@
 
 
 # Tecnologias utilizadas [Back-end | Front-end]🎯
+* Editor de códigos (IDE a sua escolha);
 * Python 3
 * Django
 * HTML
@@ -50,7 +52,7 @@
 Na maioria das distribuições Linux, o Python já vem pré-instalado. No entanto, se você precisar instalar ou atualizar o Python, pode usar o seguinte comando:
 
 ```bash
-sudo apt-get update
+sudo apt update && sudo apt upgrade -y
 sudo apt-get install python3
 ```
 
@@ -68,14 +70,20 @@ onde efetuou o clone do repositório.
 
 💡 Utilize os seguintes comandos no terminal:
 
-1. Clone o projeto <code>git clone https://github.com/anaisateodoro/django-blog-noticias.git </code>
-2. Entre no diretório do projeto <code>cd django-blog-noticias </code>
-3. Create a Virtual Environment :-
+1. Clone o projeto <code>git clone https://github.com/anaisateodoro/django-blog-noticias.git </code> e instale o Django <code>pip install django</code>
+2. Entre no diretório do projeto, crie uma pasta <code>mkdir django-blog-noticias</code> e depois certifique-se que esteja dentro dessa pasta<code>cd django-blog-noticias </code> e depois para abrir a IDE da sua preferência digite o comando <code>code .</code>.
+3. Create a Virtual Environment :
     * no Windows <code>python -m venv env </code>
     * no Linux/Mac <code>python3 -m venv env </code>
-4. Ative o Virtual Environment <code>source env/bin/activate </code>
+4. Ative o Virtual Environment:
+    * no Windows  <code>venv\Scripts\Activate</code>
+    * no Linux/Mac <code>source env/bin/activate</code>
 5. Instale os pacotes requeridos <code>pip install -r requirments.txt</code>
-6. Migrate Database :-
+ Caso no linux pedir uma atualização do gerenciador de bibliotecas, use o comando <code>pip install --upgrade pip</code> e para instalar <code>pip freeze > requirements.txt</code>
+6. Migrate Database :
+
+- Somente na primeira vez, para configuração do db <code>python manage.py makemigrations</code>
+- Executar as migrações para criação da tabela de dados.
     * no Windows <code>py manage.py migrate</code>
     * no Linux/Mac <code>python3 manage.py migrate</code>
 7. Crie SuperUser :-
@@ -203,5 +211,5 @@ onde efetuou o clone do repositório.
 
 © 2024 - Squad Grace Hopper
 
-[↑↑ - Voltar ao Topo](#desafio-final---blog-de-notícias-🚧-squad-grace-hopper)
+[↑↑ - Voltar ao Topo](#desafio-final---🚧blog-de-notícias--squad-grace-hopper)
 
