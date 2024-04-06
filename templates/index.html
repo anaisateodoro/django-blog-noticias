@@ -1,4 +1,8 @@
 {% extends "base.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'custom.css' %}">
+
 {% block content %}
 <style>
     body {
@@ -20,16 +24,18 @@
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class=" col-md-8 col-md-10 mx-auto">
-                <div class="site-heading">
-                    <h3 class=" site-heading my-4 mt-3 text-white"> Bem-vindo ao nosso Blog de Notícias</h3>
-                    <p class="text-light">Nosso desafio final da WoMakersCode com Django! &nbsp
-                    </p>
+            <div class="col-md-10 mx-auto">
+                <div class="site-heading" style="margin-left: -90px;"> <!-- Adicione um estilo online para mover o texto para a esquerda -->
+                    <h3 class="site-heading my-4 mt-3 text-white">
+                        Bem-vindo ao nosso Blog de Notícias
+                    </h3>
+                    <p class="text-light">Nosso desafio final da WoMakersCode com Django!</p>
                 </div>
             </div>
         </div>
     </div>
 </header>
+
 <div class="container">
     <div class="row">
         <!-- Blog Entries Column -->
@@ -38,14 +44,39 @@
             <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="card-title">{{ post.title }}</h2>
-                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
-                    <p class="card-text">{{post.content|slice:":200" }}</p>
-                    <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Saiba Mais &rarr;</a>
+                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on }} </p>
+                    <p class="card-text">{{ post.content|slice:":200" }}</p>
+                    <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary">Saiba Mais &rarr;</a>
                 </div>
             </div>
             {% endfor %}
         </div>
-        {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+     {% block sidebar %}
+        <div class="col-md-4 mt-3">
+            {% include 'sidebar.html' %}
+        </div>
+        {% endblock sidebar %}
     </div>
 </div>
-{%endblock%}
+
+
+<!-- Paginação -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+              <nav aria-label="...">
+                <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+                </ul>
+            </nav>
+{%endblock %}
