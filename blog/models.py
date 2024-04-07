@@ -9,6 +9,7 @@ STATUS = (
 )
 
 class Post(models.Model):
+    image = models.ImageField(upload_to='images', verbose_name='imagem',  default='images/default.jpg')
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts')
@@ -16,7 +17,7 @@ class Post(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-
+    
     class Meta:
         ordering = ['-created_on']
 
@@ -34,6 +35,7 @@ class Comment(models.Model):
     body = models.TextField(verbose_name='comentário')
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
+
     class Meta:
         ordering = ['created_on']
 
