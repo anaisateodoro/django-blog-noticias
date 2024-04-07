@@ -24,6 +24,7 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
+        from django.urls import reverse
         return reverse("post_detail", kwargs={"slug": str(self.slug)})
 
 class Comment(models.Model):
