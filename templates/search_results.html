@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+      /* Estilos gerais */
+      .search-results {
+          width: 100%;
+      }
+
+      /* Estilos para telas menores que 600px */
+      @media (max-width: 600px) {
+          .search-results {
+              font-size: 14px;
+          }
+      }
+
+      /* Estilos para telas entre 600px e 900px */
+      @media (min-width: 600px) and (max-width: 900px) {
+          .search-results {
+              font-size: 18px;
+          }
+      }
+
+      /* Estilos para telas maiores que 900px */
+      @media (min-width: 900px) {
+          .search-results {
+              font-size: 22px;
+          }
+      }
+    </style>
+    <h2>Search</h2>
+    <div class="search-results">
+    {% for post in results %}
+        <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+        <p>{{ post.content|truncatewords:50 }}</p>
+    {% empty %}
+        <p>Nenhum post foi encontrado com o termo pesquisado</p>
+    {% endfor %}
+  </div>
+{% endblock %}
