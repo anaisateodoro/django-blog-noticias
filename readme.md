@@ -2,11 +2,11 @@
 
 ![Badge em Desenvolvimento](https://img.shields.io/static/v1?label=STATUS&message=CONSTRU%C3%87%C3%83O&color=GREEN&style=for-the-badge)
 
-
 ### 🚀 Navegação do readme:
 
-- [Organização da equipe no Projeto Final](#organização-da-equipe-no-projeto-final-📍)
-- [Tecnologias utilizadas [Back-end | Front-end]](#tecnologias-utilizadas-back-end--front-end)
+- [Organização da equipe](#organização-da-equipe-👍)
+- [Tecnologias utilizadas [Back-end | Front-end]](#tecnologias-utilizadas-back-end--front-end🎯)
+- [Requisitos Mínimos](#requisitos-mínimos-🧭)
 - [Estrutura do Diretório com os arquivos e pastas](#estrutura-do-diretório-arquivos-e-pastas)
 - [Instalação e criação do Ambiente Virtual](#instalação-e-criação-de-ambiente-virtual-🔧)
 - [Padrões de Commit](#padrões-dos-commits---tipo-e-descrição-💻)
@@ -23,22 +23,23 @@
 # Organização da equipe 👍
 
 - Realizamos uma reunião inicial de planejamento para discutir o escopo do projeto, requisitos e definir metas e prioridades.
-- Utilizaremos a ferramenta do Trello com uso do Kanban para manter a equipe na mesma página e seguir o trabalho com fluidez na  organização do projeto.
+- Utilizaremos a ferramenta do Trello com uso do Kanban para manter a equipe na mesma página e seguir o trabalho com fluidez na organização do projeto.
 - Criamos diferentes listas para organizar as tarefas, como "Estruturas e Requisitos", "Backlog", "Doing", "Pendente","Blocked" e "Done".
 - Estabelecemos aqui o [quadro do projeto no Trello 💡](https://trello.com/b/AiO9uDdS/desafiofinalsquadgracehopper).
 
 - A data final de entrega do projeto é dia 12/04 e estamos trabalhando para garantir que todas as tarefas sejam concluídas até essa data.
 
-
 # Tecnologias utilizadas [Back-end | Front-end]🎯
-* Python 3
-* Django
-* HTML
-* CSS
-* Bootstrap
 
+- Editor de códigos (IDE a sua escolha);
+- Python 3
+- Django
+- HTML
+- CSS
+- Bootstrap
 
 # Requisitos Mínimos 🧭
+
 **Windows:**
 
 1. Acesse o site oficial do Python (https://www.python.org/downloads/).
@@ -50,7 +51,7 @@
 Na maioria das distribuições Linux, o Python já vem pré-instalado. No entanto, se você precisar instalar ou atualizar o Python, pode usar o seguinte comando:
 
 ```bash
-sudo apt-get update
+sudo apt update && sudo apt upgrade -y
 sudo apt-get install python3
 ```
 
@@ -60,7 +61,6 @@ sudo apt-get install python3
 2. Baixe o instalador do Python 3 para Mac.
 3. Execute o instalador.
 
-
 # Instalação e Criação de Ambiente Virtual 🔧
 
 Clone este repositório remoto no seu diretório local.Certifique-se que tenha instalado o Python3. Depois, no seu repositório local, vá para pasta
@@ -68,32 +68,40 @@ onde efetuou o clone do repositório.
 
 💡 Utilize os seguintes comandos no terminal:
 
-1. Clone o projeto <code>git clone https://github.com/anaisateodoro/django-blog-noticias.git </code>
-2. Entre no diretório do projeto <code>cd django-blog-noticias </code>
-3. Create a Virtual Environment :-
-    * no Windows <code>python -m venv env </code>
-    * no Linux/Mac <code>python3 -m venv env </code>
-4. Ative o Virtual Environment <code>source env/bin/activate </code>
+1. Clone o projeto <code>git clone https://github.com/anaisateodoro/django-blog-noticias.git </code> e instale o Django <code>pip install django</code>
+2. Entre no diretório do projeto, crie uma pasta <code>mkdir django-blog-noticias</code> e depois certifique-se que esteja dentro dessa pasta<code>cd django-blog-noticias </code> e depois para abrir a IDE da sua preferência digite o comando <code>code .</code>.
+3. Create a Virtual Environment :
+   - no Windows <code>python -m venv env </code>
+   - no Linux/Mac <code>python3 -m venv env </code>
+4. Ative o Virtual Environment:
+   - no Windows <code>venv\Scripts\Activate</code>
+   - no Linux/Mac <code>source env/bin/activate</code>
 5. Instale os pacotes requeridos <code>pip install -r requirments.txt</code>
-6. Migrate Database :-
-    * no Windows <code>py manage.py migrate</code>
-    * no Linux/Mac <code>python3 manage.py migrate</code>
+   Caso no linux pedir uma atualização do gerenciador de bibliotecas, use o comando <code>pip install --upgrade pip</code> e para instalar <code>pip freeze > requirements.txt</code>
+6. Migrate Database :
+
+- Somente na primeira vez, para configuração do db <code>python manage.py makemigrations</code>
+- Executar as migrações para criação da tabela de dados.
+  - no Windows <code>py manage.py migrate</code>
+  - no Linux/Mac <code>py manage.py migrate</code>
+
 7. Crie SuperUser :-
-    * no Windows <code>py manage.py createsuperuser</code>
-    * no Linux/Mac <code>python3 manage.py createsuperuser</code>
+   - no Windows <code>py manage.py createsuperuser</code>
+   - no Linux/Mac <code>python3 manage.py createsuperuser</code>
 8. Finalmente rode o projeto :
-    * no Windows <code>py manage.py runserver</code>
-    * no Linux/Mac <code>python3 manage.py runserver</code>
+   - no Windows <code>py manage.py runserver</code>
+   - no Linux/Mac <code>python manage.py runserver</code>
 
 - Abra no seu navegador o servidor local em **localhost:8000**
 - Ou se preferir, no seu terminal vá até o link do seu servidor local e pressione a tecla Ctrl + click mouse, que o projeto rodará na porta http://127.0.0.1:8000
-
 
 # Estrutura do diretório: arquivos e pastas
 
 - Em construção
 
+![tree_diretorio](https://github.com/anaisateodoro/django-blog-noticias/assets/70113922/b9f21d85-ca87-43a8-a2c5-80f080abf5a4)
 
+<br>
 # Padrões dos commits - Tipo e descrição 💻
 
 <table>
@@ -175,13 +183,13 @@ onde efetuou o clone do repositório.
   </tbody>
 </table>
 
-
 # Apresentação do Projeto
+
 - Slides 📊: [Apresentação Google]()
 - Vídeo da apresentação 🎥: [YouTube]()
 
-
 # Squad Grace Hopper
+
 1. Adriana Lúcia de França Rodrigues<br>
 2. Anaisa Mayara Teodoro<br>
 3. Andreia Vieira Gomes<br>
@@ -194,14 +202,12 @@ onde efetuou o clone do repositório.
 10. Terezinha de Jesus Ferreira<br>
 11. Vanessa Hallak Alves<br>
 
+|        [<img loading="lazy" src="https://avatars.githubusercontent.com/u/108764670?v=4" width=115><br><sub>Adriana Lúcia</sub>](https://github.com/Dricalucia)        | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/70113922?v=4" width=115><br><sub>Anaísa Teodoro</sub>](https://github.com/anaisateodoro) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/151036471?v=4" width=115><br><sub>Caroline Rossafa</sub>](https://github.com/CRossafa) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/128868936?v=4" width=115><br><sub>Cintia Andrade</sub>](https://github.com/Cintiabge)   | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/76233172?v=4" width=115><br><sub>Larissa V. Menezes</sub>](https://github.com/vitoriastm) |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/65911301?v=4" width=115><br><sub>Luciane Fernandes</sub>](https://github.com/LucianeFernandesRoque) |     [<img loading="lazy" src="https://avatars.githubusercontent.com/u/22503706?v=4" width=115><br><sub>Marina Reis</sub>](https://github.com/marireis)     | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/104047636?v=4" width=115><br><sub>Nathália Dias</sub>](https://github.com/nathaliadt)  | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/91030675?v=4" width=115><br><sub>Terezinha Lima</sub>](https://github.com/TerezinhaLima) |    [<img loading="lazy" src="https://avatars.githubusercontent.com/u/11962383?v=4" width=115><br><sub>Vanessa Hallak</sub>](https://github.com/vhallak)     |
 
-| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/108764670?v=4" width=115><br><sub>Adriana Lúcia</sub>](https://github.com/Dricalucia) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/70113922?v=4" width=115><br><sub>Anaísa Teodoro</sub>](https://github.com/anaisateodoro) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/151036471?v=4" width=115><br><sub>Caroline Rossafa</sub>](https://github.com/CRossafa) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/128868936?v=4" width=115><br><sub>Cintia Andrade</sub>](https://github.com/Cintiabge) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/76233172?v=4" width=115><br><sub>Larissa V. Menezes</sub>](https://github.com/vitoriastm) |  
-| :---: | :---: | :---: | :---: | :---: |
-| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/65911301?v=4" width=115><br><sub>Luciane Fernandes</sub>](https://github.com/LucianeFernandesRoque) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/22503706?v=4" width=115><br><sub>Marina Reis</sub>](https://github.com/marireis) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/104047636?v=4" width=115><br><sub>Nathália Dias</sub>](https://github.com/nathaliadt) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/91030675?v=4" width=115><br><sub>Terezinha Lima</sub>](https://github.com/TerezinhaLima) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/11962383?v=4" width=115><br><sub>Vanessa Hallak</sub>](https://github.com/vhallak) |  
-[<img loading="lazy" src="https://avatars.githubusercontent.com/u/14989288?s=200&v=4" width=115><br><sub>Andreia Vieira Gomes</sub>](https://github.com/WoMakersCode)
----
+## [<img loading="lazy" src="https://avatars.githubusercontent.com/u/14989288?s=200&v=4" width=115><br><sub>Andreia Vieira Gomes</sub>](https://github.com/WoMakersCode)
 
 © 2024 - Squad Grace Hopper
 
-[↑↑ - Voltar ao Topo](#desafio-final---blog-de-notícias-🚧-squad-grace-hopper)
-
+[↑↑ - Voltar ao Topo](#desafio-final---🚧blog-de-notícias--squad-grace-hopper)

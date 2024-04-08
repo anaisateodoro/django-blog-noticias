@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-# Crear nossas models aqui.
+from django.urls import reverse
+# Criar nossas models aqui.
 
 STATUS = (
     (0,"Draft"),
@@ -21,3 +22,20 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse("post_detail", kwargs={"slug": str(self.slug)})
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=200, verbose_name='nome')
+    email = models.EmailField(verbose_name='email')
+    body = models.TextField(verbose_name='comentário')
+    created_on = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=False)
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return 'Comment {} by {}'.format(self.body, self.name)
