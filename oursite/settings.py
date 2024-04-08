@@ -37,10 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',  #gerenciar os arquivos estáticos
+    'django.contrib.staticfiles',  
     'blog',
-    'django.contrib.sitemaps',
-    'django_summernote'    
+    'django.contrib.sitemaps'    
 ]
 
 MIDDLEWARE = [
@@ -79,8 +78,12 @@ WSGI_APPLICATION = 'oursite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
 }
 
@@ -117,16 +120,9 @@ USE_TZ = False  # Desativa o suporte a fusos horários (time zones) - Brasília 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-# Configuração de arquivos estáticos
-STATIC_URL = '/static/'  #Location of static files
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]  #Location of static files
-STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-X_FRAME_OPTIONS = 'SAMEORIGIN'
-# Base url to serve media files
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
