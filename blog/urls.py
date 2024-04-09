@@ -14,11 +14,11 @@ sitemaps = {
 
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
+    path('search/', views.search, name='search'),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
     path('summernote/', include('django_summernote.urls')),
     path('feed/rss',LatestPostFeed(), name='post_feed'),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
-    
 ]
 
 
