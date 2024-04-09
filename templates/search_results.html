@@ -1,40 +1,51 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
+<style>
+  /* Estilos gerais */
+  .search-results {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-{% block content %}
-    <style>
-      /* Estilos gerais */
-      .search-results {
-          width: 100%;
-      }
+  .result-item {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+  }
 
-      /* Estilos para telas menores que 600px */
-      @media (max-width: 600px) {
-          .search-results {
-              font-size: 14px;
-          }
-      }
+  /* Estilos para telas menores que 600px */
+  @media (max-width: 600px) {
+    .search-results {
+      font-size: 14px;
+    }
+  }
 
-      /* Estilos para telas entre 600px e 900px */
-      @media (min-width: 600px) and (max-width: 900px) {
-          .search-results {
-              font-size: 18px;
-          }
-      }
+  /* Estilos para telas entre 600px e 900px */
+  @media (min-width: 600px) and (max-width: 900px) {
+    .search-results {
+      font-size: 18px;
+    }
+    .result-item {
+      width: 75%;
+    }
+  }
 
-      /* Estilos para telas maiores que 900px */
-      @media (min-width: 900px) {
-          .search-results {
-              font-size: 22px;
-          }
-      }
-    </style>
-    <h2>Search</h2>
-    <div class="search-results">
-    {% for post in results %}
-        <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
-        <p>{{ post.content|truncatewords:50 }}</p>
+  /* Estilos para telas maiores que 900px */
+  @media (min-width: 900px) {
+    .search-results {
+      font-size: 22px;
+    }
+  }
+</style>
+<div class="search-results">
+  {% for post in results %}
+  <div class="result-item">
+    <h3><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h3>
+    <p>{{ post.content|truncatewords:50 }}</p>
     {% empty %}
-        <p>Nenhum post foi encontrado com o termo pesquisado</p>
+    <p>Nenhum post foi encontrado com o termo pesquisado</p>
     {% endfor %}
   </div>
+</div>
 {% endblock %}
