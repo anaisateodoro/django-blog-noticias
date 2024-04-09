@@ -1,10 +1,12 @@
 # Crear noosas views aqui.
 from django.views import generic
-from .models import Post
-from .forms import CommentForm
+from .models import Post, Contato
+from .forms import CommentForm , ContatoForm
 from django.views.decorators.http import require_POST
 from django.shortcuts import render, redirect
-
+from django.urls import reverse
+from django.views.generic.edit import CreateView
+from django.views.generic import TemplateView
 
 
 
@@ -39,3 +41,14 @@ def post_comment(request, slug):
     if comment_form.is_valid():
         post.comments.create(**comment_form.cleaned_data)
     return redirect('post_detail', slug=slug)
+
+
+class ContatoCreate(CreateView):
+    form_class = ContatoForm
+    template_name = 'contato.html'
+
+    def get_sucess_url(self):
+        return reverse('contato_form_sucess')
+
+class ContatoCreateSucess(TemplateView):
+    template_name = 'contato_success.html'

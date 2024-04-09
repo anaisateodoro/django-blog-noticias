@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+		<div class="container">
+			<div class="formBox">
+				<form action="" method="post">{% csrf_token %}
+						<div class="row">
+							<div class="col-sm-12">
+								<h1>ENTRE EM CONTATO</h1>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="inputBox">
+									<div class="inputText">Nome Completo</div>
+									<input type="text" name="nome" id="id_nome" class="input">
+								</div>
+							</div>
+							
+	                       </div>
+							<div class="col-sm-6">
+								<div class="inputBox">
+									<div class="inputText">Email</div>
+									<input type="email" name="email" id="id_email" class="input">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="inputBox">
+									<div class="inputText">Telefone</div>
+									<input type="text" name="telefone" id="id_telefone" class="input">
+								</div>
+							</div>
+
+							<div class="col-sm-6">
+								<div class="inputBox">
+									<div class="inputText">Assunto</div>
+									<input type="text" name="assunto" id="id_assunto" class="input">
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="inputBox">
+									<div class="inputText">mensagem</div>
+									<textarea class="input" name="mensagem" id="id_mensagem"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<input type="submit" name="" class="button" value="Enviar">
+							</div>
+						</div>
+				</form>
+                {%endblock%}
+		
