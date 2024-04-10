@@ -5,6 +5,7 @@ from .feeds import LatestPostFeed
 from oursite.sitemaps import PostSitemap
 from django.conf.urls.static import static
 
+# Sitemap configuration
 sitemaps = {
     "posts": PostSitemap,
 }
@@ -20,3 +21,5 @@ urlpatterns = [
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
 ]
+
+
