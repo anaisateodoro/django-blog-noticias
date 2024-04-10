@@ -63,7 +63,26 @@
           box-shadow: 0 16px 48px #e3e7eb;
           padding-top: 10px;
         }
-
+        .scroll-to-top {
+            position: fixed;
+            left: 10px;
+            bottom: 15px;
+            display: none;
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            background-color: #cd33e1;
+            color: #fff;
+            font-size: 12px;
+            line-height: 1;
+            text-align: center;
+            cursor: pointer;
+            z-index: 9999;
+        }
+        .scroll-to-top:hover {
+            background-color: #c57fcf;
+        }
       </style>
 
       <!-- Navegação -->
@@ -112,12 +131,12 @@
                 >
               </li>
               <li class="nav-item text-black">
-                <a class="nav-link text-black font-weight-bold" href="#"
+                <a class="nav-link text-black font-weight-bold" href="{% url 'nossa_missao' %}"  
                   >Nossa missão</a
                 >
               </li>
               <li class="nav-item text-black">
-                <a class="nav-link text-black font-weight-bold" href="#"
+                <a class="nav-link text-black font-weight-bold" href="{%url 'contato_form'%}"
                   >Contato</a
                 >
               </li>
@@ -128,12 +147,38 @@
       {% block content %}
       <!-- O conteúdo vai aqui -->
       {% endblock content %}
+      <!-- Botao voltar ao topo -->
+      <button class="scroll-to-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i> voltar ao topo
+      </button>
       <!-- Footer -->
       <footer class="py-3 bg-grey">
         <p class="m-0 text-dark text-center">
           Django &#10084; Squad Grace Hoper
         </p>
       </footer>
+      <!-- Bootstrap JS e jQuery (necessário para o scroll suave) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        // Adiciona o comportamento de rolagem suave ao botão "bottom of page"
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 100) {
+                    $('.scroll-to-top').fadeIn();
+                } else {
+                    $('.scroll-to-top').fadeOut();
+                }
+            });
+
+            $('.scroll-to-top').click(function() {
+                $('html, body').animate({ scrollTop: 0 }, 'slow');
+                return false;
+            });
+        });
+    </script>
     </body>
   </html>
 </html>

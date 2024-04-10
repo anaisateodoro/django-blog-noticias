@@ -1,6 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from datetime import datetime
+from django.utils.html import format_html
+
+
 # Criar nossas models aqui.
 
 STATUS = (
@@ -41,3 +45,19 @@ class Comment(models.Model):
 
     def __str__(self):
         return 'Comment {} by {}'.format(self.body, self.name)
+    
+class Contato(models.Model):
+    id = models.AutoField(primary_key=True)
+    nome = models.CharField(max_length=100)
+    data = models.DateTimeField(auto_now_add=True)
+    email = models.EmailField(verbose_name='email')
+    telefone = models.CharField(null=True, blank=True)
+    assunto = models.CharField(max_length=100)
+    mensagem = models.TextField(verbose_name='deixe sua mensagem')
+
+    class Meta:
+        verbose_name = 'Contato'
+        ordering = ['-data']
+        
+    def __str__(self):
+        return self.nome

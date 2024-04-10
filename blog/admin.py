@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Post, Comment
+from .models import Post, Comment, Contato
 from django.utils.html import format_html
 
 # Registrar nossas models aqui.
@@ -30,3 +30,9 @@ class CommentAdm(admin.ModelAdmin):
         queryset.update(active=True)
     approve_comments.short_description = 'Approve comments'
 
+@admin.register(Contato)
+
+class ContatoAdmin(admin.ModelAdmin):
+    list_display = ['nome','data', 'email', 'telefone', 'assunto', 'mensagem']
+    search_fields = ['nome', 'email']
+    list_filter = ['data']
