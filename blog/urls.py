@@ -18,7 +18,6 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('feed/rss',LatestPostFeed(), name='post_feed'),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
-    
 ]
 
 
