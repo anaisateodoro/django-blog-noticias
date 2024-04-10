@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<style>
+    .custom-card-header {
+        background-color: #cd33e1;
+        color: white;
+    }
+</style>
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8 text-center">
+            <div class="card">
+                <div class="card-header custom-card-header"><h3>SUA MENSAGEM FOI ENVIADA COM SUCESSO!</h3></div>
+                <div class="card-body">
+                    <p>Em breve entraremos em contato!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
