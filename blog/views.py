@@ -5,13 +5,14 @@ from .forms import CommentForm
 from django.views.decorators.http import require_POST
 from django.shortcuts import render, redirect
 from django.db.models import Q
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
+    paginate_by = 2
 
 
 def post_detail(request, slug):
@@ -32,7 +33,7 @@ def post_detail(request, slug):
         'new_comment': new_comment,
         'comment_form': comment_form,
     })
-    
+
 def search(request):
     query = request.GET.get('q')
     results = Post.objects.filter(Q(title__icontains=query) | Q(content__icontains=query))
