@@ -12,6 +12,7 @@ sitemaps = {
 
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
+    path('nossa_missao/', views.NossaMissaoView.as_view(), name='nossa_missao'),
     path('contato/', views.ContatoCreate.as_view(), name='contato_form'),
     path('sucesso/', views.ContatoCreateSuccess.as_view(), name='contato_form_success'),
     path('summernote/', include('django_summernote.urls')),

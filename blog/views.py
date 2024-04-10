@@ -53,3 +53,7 @@ class ContatoCreate(CreateView):
 
 class ContatoCreateSuccess(TemplateView):
     template_name = 'contato_success.html'
+
+
+class NossaMissaoView(TemplateView):
+    template_name = 'nossa_missao.html'
