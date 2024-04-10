@@ -16,8 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.contrib.sitemaps.views import sitemap #Sitemap view
+from oursite.sitemaps import PostSitemap   #Sitemap view
+from django.conf import settings #Import settings module to managing media files   
+from django.conf.urls.static import static #Import static module  to managing media files 
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
+    path('summernote/', include('django_summernote.urls'))
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
+

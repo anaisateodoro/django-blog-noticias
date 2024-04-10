@@ -1,19 +1,47 @@
-# Crear nossas views aqui.
+# Crear noosas views aqui.
 from django.views import generic
-from django.shortcuts import render
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .models import Post
+from .forms import CommentForm
+from django.views.decorators.http import require_POST
+from django.shortcuts import render, redirect
+from django.db.models import Q
+
+
+
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
-    paginate_by = 3
 
-    def index(request):
-        post_list = Post.objects.all()
-        paginator = Paginator(post_list, 5) # 5 post por página
-        page_list = request.GET.get('page')
-        page = page.get_page(page_list)
-class PostDetail(generic.DetailView):
-    model = Post
+
+def post_detail(request, slug):
     template_name = 'post_detail.html'
+    post = Post.objects.get(slug=slug)
+    comments = post.comments.filter(active=True)
+    new_comment = None
+    comment_form = CommentForm()
+
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = post.comments.create(**comment_form.cleaned_data)
+
+    return render(request, template_name, {
+        'post': post,
+        'comments': comments,
+        'new_comment': new_comment,
+        'comment_form': comment_form,
+    })
+    
+def search(request):
+    query = request.GET.get('q')
+    results = Post.objects.filter(Q(title__icontains=query) | Q(content__icontains=query))
+    return render(request, 'search_results.html', {'results': results})
+
+@require_POST
+def post_comment(request, slug):
+    post = Post.objects.get(slug=slug)
+    comment_form = CommentForm(data=request.POST)
+    if comment_form.is_valid():
+        post.comments.create(**comment_form.cleaned_data)
+    return redirect('post_detail', slug=slug)

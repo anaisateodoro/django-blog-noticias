@@ -1,68 +1,139 @@
 <!DOCTYPE html>
-<html>
-
+{% load static %}
+<html lang="pt-br">
+  <html>
     <head>
-        <title>Django - Squad Grace Hoper</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-        <meta name="google" content="notranslate" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous" />
+      <meta charset="UTF-8" />
+      <title>Django - Squad Grace Hoper</title>
+      <link
+        href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+        rel="stylesheet"
+      />
+      <meta name="author" content="Squad Grace-Hopper" />
+      <meta
+        name="description"
+        content="Projeto final do Bootcamp de Django da WoMakersCode"
+      />
+      <meta name="keywords" content="womakerscode,django,blog, notícias" />
+      <meta name="robots" content="index,follow" />
+      <meta name="google" content="notranslate" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"
+      />
+      <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+      ></script>
     </head>
 
     <body>
-        <style>
-            body {
-            font-family: "Roboto", sans-serif;
-            font-size: 17px;
-            background-color: #fdfdfd;
+      <style>
+        body {
+          font-family: "Roboto", sans-serif;
+          font-size: 17px;
+          background-color: #fdfdfd;
         }
         .shadow {
-            box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
         }
         .btn-danger {
-            color: #fff;
-            background-color: #f00000;
-            border-color: #dc281e;
+          color: #fff;
+          background-color: #f00000;
+          border-color: #dc281e;
         }
         .masthead {
-            background: #3398E1;
-            height: auto;
-            padding-bottom: 15px;
-            box-shadow: 0 16px 48px #E3E7EB;
-            padding-top: 10px;
+          background: #cd33e1;
+          height: auto;
+          padding-bottom: 15px;
+          box-shadow: 0 16px 48px #e3e7eb;
+          padding-top: 10px;
         }
-    </style>
 
-        <!-- Navegação -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'home' %}">Django - Squad Grace Hoper</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">Sobre</a>
-                        </li>
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">Nossa missão</a>
-                        </li>
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">Contato</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        {% block content %}
-       <!-- O conteúdo vai aqui -->
-        {% endblock content %}
-        <!-- Footer -->
-        <footer class="py-3 bg-grey">
-            <p class="m-0 text-dark text-center"> Django &#10084; Squad Grace Hoper </p>
-        </footer>
+      </style>
+
+      <!-- Navegação -->
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-light shadow"
+        id="mainNav"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}"
+            ><strong>Squad Grace Hoper</strong></a
+          >
+          <button
+            class="navbar-toggler navbar-toggler-right"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarResponsive"
+            aria-controls="navbarResponsive"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- barra de busca -->
+          <form
+            class="form-inline my-2 my-lg-0"
+            action="{% url 'search' %}"
+            method="get"
+          >
+            <input
+              class="form-control mr-sm-2"
+              type="buscar"
+              placeholder="Buscar"
+              aria-label="Buscar"
+              name="q"
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Buscar
+            </button>
+          </form>
+
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item text-black">
+                <a class="nav-link text-black font-weight-bold" href="http://127.0.0.1:8000/"
+                  >Sobre</a
+                >
+              </li>
+              <li class="nav-item text-black">
+                <a class="nav-link text-black font-weight-bold" href="#"
+                  >Nossa missão</a
+                >
+              </li>
+              <li class="nav-item text-black">
+                <a class="nav-link text-black font-weight-bold" href="#"
+                  >Contato</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      {% block content %}
+      <!-- O conteúdo vai aqui -->
+      {% endblock content %}
+      <!-- Footer -->
+      <footer class="py-3 bg-grey">
+        <p class="m-0 text-dark text-center">
+          Django &#10084; Squad Grace Hoper
+        </p>
+      </footer>
     </body>
+  </html>
 </html>
