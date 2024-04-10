@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#id_telefone').mask('(00) 00000-0000');
+    });
+    </script>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" style="background-color: #cd33e1; color: white;">
+                    <h2 class="text-center font-weight-bold">Procurando mais informações? <br>Entre em contato conosco:</h2>
+                </div>
+                    <div class="card-body">
+                    <form action="" method="post" class="mt-4">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_nome">Nome Completo</label>
+                            <input type="text" name="nome" id="id_nome" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_email">Email</label>
+                            <input type="email" name="email" id="id_email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_telefone">Telefone</label>
+                            <input type="text" name="telefone" id="id_telefone" class="form-control" data-mask="(00) 00000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_assunto">Assunto</label>
+                            <input type="text" name="assunto" id="id_assunto" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_mensagem">Mensagem</label>
+                            <textarea class="form-control" name="mensagem" id="id_mensagem"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
