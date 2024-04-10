@@ -1,0 +1,11 @@
+asgiref==3.8.1
+beautifulsoup4==4.12.3
+bleach==6.1.0
+Django==5.0.4
+django-bootstrap4==24.1
+django-summernote==0.8.20.0
+six==1.16.0
+soupsieve==2.5
+sqlparse==0.4.4
+webencodings==0.5.1
+pillow

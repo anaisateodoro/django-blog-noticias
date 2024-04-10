@@ -76,15 +76,24 @@ onde efetuou o clone do repositório.
 4. Ative o Virtual Environment:
    - no Windows <code>venv\Scripts\Activate</code>
    - no Linux/Mac <code>source env/bin/activate</code>
-5. Instale os pacotes requeridos <code>pip install -r requirments.txt</code>
+5. Instale os pacotes requeridos <code>pip install -r requirements.txt</code>
    Caso no linux pedir uma atualização do gerenciador de bibliotecas, use o comando <code>pip install --upgrade pip</code> e para instalar <code>pip freeze > requirements.txt</code>
+   Para configuração do banco de dados, Instale as dependências
+   `pip install psycopg2`,
+   `pip install psycopg2-binary`
 6. Migrate Database :
 
 - Somente na primeira vez, para configuração do db <code>python manage.py makemigrations</code>
 - Executar as migrações para criação da tabela de dados.
   - no Windows <code>py manage.py migrate</code>
   - no Linux/Mac <code>py manage.py migrate</code>
-
+- Se caso der erro de postgressql, verifique se o bd está ativo na sua maquina.
+  - no Linux `sudo service postgresql start`
+  - no Windows:
+    1. Pressione a tecla Windows + R para abrir a caixa de diálogo Executar.
+    2. Digite `services.msc` e pressione Enter. Isso abrirá o Gerenciador de Serviços.
+    3. Procure pelo serviço PostgreSQL na lista. O nome do serviço geralmente começa com "postgresql", seguido pela versão do PostgreSQL (por exemplo, "postgresql-x64-13").
+    4. Clique com o botão direito do mouse no serviço PostgreSQL e selecione "Iniciar".
 7. Crie SuperUser :-
    - no Windows <code>py manage.py createsuperuser</code>
    - no Linux/Mac <code>python3 manage.py createsuperuser</code>

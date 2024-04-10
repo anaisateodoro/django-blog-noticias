@@ -5,19 +5,18 @@ from .feeds import LatestPostFeed
 from oursite.sitemaps import PostSitemap
 from django.conf.urls.static import static
 
-
-
-# Sitemap configuration
 sitemaps = {
     "posts": PostSitemap,
 }
 
 urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
-    path('<slug:slug>/', views.post_detail, name='post_detail'),
+    path('search/', views.search, name='search'),
+    path('nossa_missao/', views.NossaMissaoView.as_view(), name='nossa_missao'),
+    path('contato/', views.ContatoCreate.as_view(), name='contato_form'),
+    path('sucesso/', views.ContatoCreateSuccess.as_view(), name='contato_form_success'),
     path('summernote/', include('django_summernote.urls')),
     path('feed/rss',LatestPostFeed(), name='post_feed'),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
+    path('<slug:slug>/', views.post_detail, name='post_detail'),
 ]
-
-
