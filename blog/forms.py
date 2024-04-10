@@ -1,4 +1,4 @@
-from .models import Comment, Contato
+from .models import Comment
 from django import forms
 from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
@@ -13,9 +13,4 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('name', 'email', 'body')
 
-# Apply summernote to specific fields.
-
-class ContatoForm(forms.ModelForm):
-    class Meta:
-        model = Contato
-        exclude = ('id', 'data')
+        # Apply summernote to specific fields.
