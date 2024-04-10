@@ -5,9 +5,9 @@ import os
 from celery import Celery
 
 # Configuração do Celery
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django-blog-noticias.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oursite.settings')
 
-app = Celery('django-blog-noticias')
+app = Celery('oursite')
 app.config_from_object('django.conf:settings', namespace='CELERY')
 app.autodiscover_tasks()
 
