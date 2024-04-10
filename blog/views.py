@@ -21,7 +21,7 @@ def post_detail(request, slug):
     comments = post.comments.filter(active=True)
     new_comment = None
     comment_form = CommentForm()
-
+    
     if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -47,8 +47,9 @@ class ContatoCreate(CreateView):
     form_class = ContatoForm
     template_name = 'contato.html'
 
-    def get_sucess_url(self):
-        return reverse('contato_form_sucess')
+    
+    def get_success_url(self):
+        return reverse('contato_form_success')
 
-class ContatoCreateSucess(TemplateView):
+class ContatoCreateSuccess(TemplateView):
     template_name = 'contato_success.html'

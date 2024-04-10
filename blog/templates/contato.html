@@ -1,62 +1,42 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
 {% block content %}
-<div class="container-fluid">
-		<div class="container">
-			<div class="formBox">
-				<form action="" method="post">{% csrf_token %}
-						<div class="row">
-							<div class="col-sm-12">
-								<h1>ENTRE EM CONTATO</h1>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="inputBox">
-									<div class="inputText">Nome Completo</div>
-									<input type="text" name="nome" id="id_nome" class="input">
-								</div>
-							</div>
-							
-	                       </div>
-							<div class="col-sm-6">
-								<div class="inputBox">
-									<div class="inputText">Email</div>
-									<input type="email" name="email" id="id_email" class="input">
-								</div>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="inputBox">
-									<div class="inputText">Telefone</div>
-									<input type="text" name="telefone" id="id_telefone" class="input">
-								</div>
-							</div>
-
-							<div class="col-sm-6">
-								<div class="inputBox">
-									<div class="inputText">Assunto</div>
-									<input type="text" name="assunto" id="id_assunto" class="input">
-								</div>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="inputBox">
-									<div class="inputText">mensagem</div>
-									<textarea class="input" name="mensagem" id="id_mensagem"></textarea>
-								</div>
-							</div>
-						</div>
-
-						<div class="row">
-							<div class="col-sm-12">
-								<input type="submit" name="" class="button" value="Enviar">
-							</div>
-						</div>
-				</form>
-                {%endblock%}
-		
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" style="background-color: #cd33e1; color: white;">
+                    <h2 class="text-center font-weight-bold">Procurando mais informações? <br>Entre em contato conosco:</h2>
+                </div>
+                    <div class="card-body">
+                    <form action="" method="post" class="mt-4">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_nome">Nome Completo</label>
+                            <input type="text" name="nome" id="id_nome" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_email">Email</label>
+                            <input type="email" name="email" id="id_email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_telefone">Telefone</label>
+                            <input type="text" name="telefone" id="id_telefone" class="form-control" data-mask="(00) 00000-0000">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_assunto">Assunto</label>
+                            <input type="text" name="assunto" id="id_assunto" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="id_mensagem">Mensagem</label>
+                            <textarea class="form-control" name="mensagem" id="id_mensagem"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
