@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'blog',
     'django.contrib.sitemaps',
     'django_summernote',
-    'bootstrap4'
+    'bootstrap4',
+    'django_celery_beat'
 
 ]
 
@@ -129,3 +130,21 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Configuração Celery
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_TASK_ALWAYS_EAGER = True #Executa tarefas de forma síncrona
+
+# Usando o beat_schedule para criação de tarefa periodica - verificar nova noticia
+
+from datetime import timedelta
+
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+
+CELERY_BEAT_SCHEDULE = {
+    'verificar_e_enviar_noticia': {
+        'task': 'blog.tasks.verificar_e_enviar_noticia',
+        'schedule': timedelta(days=1),
+    },
+}
