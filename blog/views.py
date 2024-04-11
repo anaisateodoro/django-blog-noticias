@@ -1,16 +1,17 @@
 # Crear noosas views aqui.
 from django.views import generic
-from .models import Post, Contato
-from .forms import CommentForm , ContatoForm
+from .models import Post, Contato, Autor
+from .forms import CommentForm , ContatoForm, AutorForm, PostForm
 from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.urls import reverse
 from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
-
-
+from django.contrib.auth import logout
+from django.contrib import messages 
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
@@ -44,7 +45,7 @@ def search(request):
 
 @require_POST
 def post_comment(request, slug):
-    post = Post.objects.get(slug=slug)
+    post = Post.objects.get(slug)
     comment_form = CommentForm(data=request.POST)
     if comment_form.is_valid():
         post.comments.create(**comment_form.cleaned_data)
@@ -69,3 +70,45 @@ class NossaMissaoView(TemplateView):
 
 class Sobre(TemplateView):
     template_name = 'sobre.html'
+
+
+def cadastro_autor(request):
+    if request.method == 'POST':
+        form = AutorForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login_autor')  # Redireciona para a página de login
+    else:
+        form = AutorForm()
+    return render(request, 'cadastro_autor.html', {'form': form})
+
+def login_autor(request):
+    if request.method == 'POST' and 'email' in request.POST:
+        email = request.POST['email'].strip()
+        senha = request.POST['senha'].strip()
+       
+        autor = Autor.objects.filter(email=email, senha=senha).first()
+        if autor is not None:
+            return redirect('autor_logado')
+        else:
+            return render(request, 'login_autor.html', {'erro': True})
+    else:
+        return render(request, 'login_autor.html')
+    
+@login_required
+def autor_logado(request):
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Salvando a postagem associada ao autor logado
+            form.save
+            return redirect('autor_logado')
+    else:
+        form = PostForm()
+
+    return render(request, 'autor_logado.html', {'form': form})
+
+def logout_autor(request):
+    logout(request)
+    return redirect('home')

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Post, Comment, Contato
+from .models import Post, Comment, Contato, Autor
 from django.utils.html import format_html
 
 # Registrar nossas models aqui.
@@ -36,3 +36,5 @@ class ContatoAdmin(admin.ModelAdmin):
     list_display = ['nome','data', 'email', 'telefone', 'assunto', 'mensagem']
     search_fields = ['nome', 'email']
     list_filter = ['data']
+
+admin.site.register(Autor)

@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .btn-danger {
+        background-color: #cd33e1;
+    }
+</style>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" style="background-color: #cd33e1; color: white;">
+                    <h2 class="text-center font-weight-bold mb-0">
+                        Bem-vindo(a), {{ nome_autor }}!</h2><br>
+                    <h3 class="text-center font-weight-bold mb-0">
+                        Contribua conosco, faça aqui a sua publicação.</h3>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-success" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="id_title">Título:</label>
+                            <input type="text" id="id_title" name="title" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_content">Conteúdo:</label>
+                            <textarea id="id_content" name="content" class="form-control" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_image">Imagem:</label>
+                            <input type="file" id="id_image" name="image" class="form-control-file" accept="image/*">
+                        </div>
+                        <button type="submit" class="btn btn-danger">Adicionar Postagem</button>
+                    </form>
+                    <form action="{% url 'logout_autor' %}" method="post">    
+                        <button type="submit" class="btn btn-primary mt-3">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center font-weight-bold mb-0">Postagens</h3>
+                </div>
+                <div class="card-body">
+                    {% for post in posts %}
+                    <div class="mb-3">
+                        <h4>{{ post.title }}</h4>
+                        <!-- Verifique se post.slug não está vazio e passe-o para a URL reversa -->
+                        {% if post.slug %}
+                            <a href="{% url 'post_detail' slug=post.slug %}" class="btn-sm btn-danger">Detalhes</a>
+                        {% else %}
+                            <p>Erro: o slug está vazio para esta postagem.</p>
+                        {% endif %}
+                    </div>
+                    {% empty %}
+                    <p>Nenhuma postagem encontrada.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

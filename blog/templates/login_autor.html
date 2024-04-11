@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .btn-danger {
+        background-color: #cd33e1;
+    }
+</style>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8" style="margin-top: 16px;">
+            <div class="card">
+                <div class="card-header" style="background-color: #cd33e1; color: white;">
+                    <h2 class="text-center font-weight-bold">Faça o seu login!</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% if erro %}
+                            <p class="alert alert-danger">Erro: email ou senha inválidos.</p>
+                        {% endif %}
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha</label>
+                            <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha" required>
+                        </div>
+                        <button type="submit" class="btn btn-danger">Entrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
