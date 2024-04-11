@@ -14,6 +14,7 @@ urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
     path('search/', views.search, name='search'),
     path('nossa_missao/', views.NossaMissaoView.as_view(), name='nossa_missao'),
+    path('sobre/', views.Sobre.as_view(), name='sobre'),
     path('contato/', views.ContatoCreate.as_view(), name='contato_form'),
     path('sucesso/', views.ContatoCreateSuccess.as_view(), name='contato_form_success'),
     path('summernote/', include('django_summernote.urls')),

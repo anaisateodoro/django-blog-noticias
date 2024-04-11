@@ -5,6 +5,7 @@ from .forms import CommentForm , ContatoForm
 from django.views.decorators.http import require_POST
 from django.shortcuts import render, redirect
 from django.db.models import Q
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.urls import reverse
 from django.views.generic.edit import CreateView
 from django.views.generic import TemplateView
@@ -14,7 +15,7 @@ from django.views.generic import TemplateView
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
-    paginate_by = 2
+    paginate_by = 3
 
 
 def post_detail(request, slug):
@@ -64,3 +65,7 @@ class ContatoCreateSuccess(TemplateView):
 
 class NossaMissaoView(TemplateView):
     template_name = 'nossa_missao.html'
+    
+
+class Sobre(TemplateView):
+    template_name = 'sobre.html'
