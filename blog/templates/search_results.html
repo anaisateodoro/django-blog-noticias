@@ -8,10 +8,11 @@
     align-items: center;
   }
 
-  .result-item {
-    width: 100%;
+  #result-item {
+    width: 98%;
     box-sizing: border-box;
     padding: 10px;
+    margin: 10px;
   }
 
   /* Estilos para telas menores que 600px */
@@ -40,12 +41,14 @@
 </style>
 <div class="search-results">
   {% for post in results %}
-  <div class="result-item">
-    <h3><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h3>
-    <p>{{ post.content | truncatewords:50 | safe}}</p>
-    {% empty %}
-    <p>Nenhum post foi encontrado com o termo pesquisado</p>
-    {% endfor %}
+  <div class="card mb-4" id="result-item" style="box-shadow: 0 16px 48px #E3E7EB;">
+    <div class="card-body">
+      <h3><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h3>
+      <p>{{ post.content | truncatewords:50 | safe}}</p>
+      {% empty %}
+      <p>Nenhum post foi encontrado com o termo pesquisado.</p>
+      {% endfor %}
+    </div>
   </div>
 </div>
 {% endblock %}

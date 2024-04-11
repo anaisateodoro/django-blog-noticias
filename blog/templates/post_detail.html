@@ -2,20 +2,18 @@
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col-md-8 card mb-4 mt-3 left top"> 
+    <div class="col-md-10 card mb-4 mt-3 mx-auto"> 
       <div class="card-body">
         {% if post.image %}
-          <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid">
+          <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid" style="margin-bottom: 16px; border-radius: 6px;">
         {% endif %}
         <h1>{% block title %} {{ post.title }} {% endblock title %}</h1> 
         <p class="text-muted">{{ post.author }} | {{ post.created_on }}</p>
         <p class="card-text">{{ post.content | safe }}</p> 
       </div>
     </div>
-    {% block sidebar %}
-    {% include 'sidebar.html' %}
-    {% endblock sidebar %}
-    <div class="col-md-8 card mb-4 mt-3">
+
+    <div class="col-md-10 card mb-4 mt-3 mx-auto">
       <div class="card-body">
         <h2>{{ comments.count }} comments</h2>
         {% for comment in comments %}
@@ -31,7 +29,7 @@
         {% endfor %}
       </div>
     </div>
-    <div class="col-12 col-md-8 card mb-4 mt-3">
+    <div class="col-12 col-md-10 card mb-4 mt-3 mx-auto">
       <div class="card-body">
         {% if new_comment %}
         <div class="alert alert-success" role="alert">

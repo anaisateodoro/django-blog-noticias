@@ -27,15 +27,41 @@
         border-radius: 6px;
     }
 
+    #page-bar {
+        justify-content: center;
+        align-items: center;
+    }
+
+    #header_title {
+        font-weight: bold;
+        font-size: 30px;
+    }
+    
+    .pagination .page-item.active .page-link {
+    background-color: #cd33e1;
+    border-color: #cd33e1;
+    color: #fff
+    }
+
+    .pagination .page-item .page-link {
+    color: #cd33e1;
+    }
+
+    .pagination .page-item .page-link:hover {
+    background-color: #e0c3ff;
+    border-color: #e0c3ff;
+    color: #fff;
+    }
+
 </style>
 
 <header class="masthead">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class=" col-md-8 col-md-10 mx-auto">
+            <div class="col-md-8 mx-auto">
                 <div class="site-heading">
-                    <h3 class=" site-heading my-4 mt-3 text-white"> Bem-vindo ao nosso Blog de Notícias</h3>
+                    <h3 class="site-heading my-4 mt-3 text-white" id="header_title"> Bem-vindo ao nosso Blog de Notícias</h3>
                     <p class="text-light">Nosso desafio final da WoMakersCode com Django! &nbsp
                     </p>
                 </div>
@@ -46,7 +72,7 @@
 <div class="container">
     <div class="row">
         <!-- Blog Entries Column -->
-        <div class="col-md-8 mt-3 left">
+        <div class="col-md-8 mt-3 mx-auto">
             {% for post in post_list %}
             <div class="card mb-4">
                 <div class="card-body">
@@ -60,7 +86,7 @@
                 </div>
             </div>
             {% endfor %}
-            <div class="pagination">
+            <div class="pagination" id="page-bar">
                 <ul class="pagination">
                     {% if is_paginated %}
                         {% if page_obj.has_previous %}
