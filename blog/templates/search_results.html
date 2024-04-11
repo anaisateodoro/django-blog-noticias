@@ -42,7 +42,7 @@
   {% for post in results %}
   <div class="result-item">
     <h3><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h3>
-    <p>{{ post.content|truncatewords:50 }}</p>
+    <p>{{ post.content | truncatewords:50 | safe}}</p>
     {% empty %}
     <p>Nenhum post foi encontrado com o termo pesquisado</p>
     {% endfor %}
