@@ -9,9 +9,10 @@
   }
 
   .result-item {
-    width: 100%;
+    width: 98%;
     box-sizing: border-box;
     padding: 10px;
+    margin: 10px;
   }
 
   /* Estilos para telas menores que 600px */
@@ -44,7 +45,7 @@
     <h3><a href="{% url 'post_detail' post.slug %}">{{ post.title }}</a></h3>
     <p>{{ post.content | truncatewords:50 | safe}}</p>
     {% empty %}
-    <p>Nenhum post foi encontrado com o termo pesquisado</p>
+    <p>Nenhum post foi encontrado com o termo pesquisado.</p>
     {% endfor %}
   </div>
 </div>

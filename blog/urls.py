@@ -20,6 +20,10 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('feed/rss',LatestPostFeed(), name='post_feed'),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="sitemap"),
+    path('cadastro/', views.cadastro_autor, name='cadastro_autor'),
+    path('login/', views.login_autor, name='login_autor'),
+    path('logado/', views.autor_logado, name='autor_logado'),
+    path('logout/', views.logout_autor, name='logout_autor'),
     path('<slug:slug>/', views.post_detail, name='post_detail'),
 ]
 

@@ -4,7 +4,7 @@
   <html>
     <head>
       <meta charset="UTF-8" />
-      <title>Django - Squad Grace Hoper</title>
+      <title>Django - Squad Grace Hopper</title>
       <link
         href="https://fonts.googleapis.com/css?family=Roboto:400,700"
         rel="stylesheet"
@@ -92,7 +92,7 @@
       >
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'home' %}"
-            ><strong>Squad Grace Hoper</strong></a
+            ><strong>Squad Grace Hopper</strong></a
           >
           <button
             class="navbar-toggler navbar-toggler-right"
@@ -140,8 +140,14 @@
                   >Contato</a
                 >
               </li>
+            </li>
+            <li class="nav-item text-black">
+              <a class="nav-link text-black font-weight-bold" href="{%url 'cadastro_autor'%}"
+                >Cadastre-se</a
+              >
+            </li>
               <li class="nav-item text-black">
-                <a class="nav-link text-black font-weight-bold" href="http://localhost:8000/admin/"
+                <a class="nav-link text-black font-weight-bold" href="{%url 'login_autor'%}"
                   >Login</a
                 >
               </li>
@@ -154,12 +160,12 @@
       {% endblock content %}
       <!-- Botao voltar ao topo -->
       <button class="scroll-to-top" aria-label="Voltar ao topo">
-        <i class="fas fa-arrow-up"></i> voltar ao topo
+        <i class="fas fa-arrow-up"></i> Voltar ao topo
       </button>
       <!-- Footer -->
       <footer class="py-3 bg-grey">
         <p class="m-0 text-dark text-center">
-          Django &#10084; Squad Grace Hoper
+          Django &#10084; Squad Grace Hopper
         </p>
       </footer>
       <!-- Bootstrap JS e jQuery (necessário para o scroll suave) -->
