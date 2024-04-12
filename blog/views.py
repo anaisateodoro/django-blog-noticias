@@ -97,16 +97,16 @@ def login_autor(request):
     
 @login_required
 def autor_logado(request):
-
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            # Salvando a postagem associada ao autor logado
-            form.save
+        # Save the post instance with the logged-in author
+            post = form.save(commit=False)  # Don't commit yet
+            post.author = request.user  # Assign the logged-in author
+            post.save()  # Now save the post with the author
             return redirect('autor_logado')
     else:
         form = PostForm()
-
     return render(request, 'autor_logado.html', {'form': form})
 
 def logout_autor(request):
