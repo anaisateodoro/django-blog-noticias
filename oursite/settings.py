@@ -151,3 +151,7 @@ CELERY_BEAT_SCHEDULE = {
         'schedule': timedelta(days=1),
     },
 }
+
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/logado/'
+LOGOUT_REDIRECT_URL = '/home/'

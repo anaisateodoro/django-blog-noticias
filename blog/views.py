@@ -95,7 +95,6 @@ def login_autor(request):
     else:
         return render(request, 'login_autor.html')
     
-@login_required
 def autor_logado(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)
