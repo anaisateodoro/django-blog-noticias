@@ -2,6 +2,11 @@
 {% load bootstrap4 %}
 {% load static %}
 {% block content %}
+<style>
+    .btn-danger {
+        background-color: #cd33e1;
+    }
+</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 <script>
@@ -40,7 +45,7 @@
                             <label for="id_mensagem">Mensagem</label>
                             <textarea class="form-control" name="mensagem" id="id_mensagem"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="submit" class="btn btn-danger">Enviar</button>
                     </form>
                 </div>
             </div>

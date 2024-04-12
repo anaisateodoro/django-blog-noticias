@@ -83,6 +83,10 @@
         .scroll-to-top:hover {
             background-color: #c57fcf;
         }
+
+        .btn-danger {
+        background-color: #cd33e1;
+    }
       </style>
 
       <!-- Navegação -->
@@ -91,9 +95,8 @@
         id="mainNav"
       >
         <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'home' %}"
-            ><strong>Squad Grace Hopper</strong></a
-          >
+          <a class="navbar-brand" href="{% url 'home' %}"style="color: #cd33e1;"><strong>Squad Grace Hopper</strong></a>
+          
           <button
             class="navbar-toggler navbar-toggler-right"
             type="button"
@@ -118,7 +121,7 @@
               aria-label="Buscar"
               name="q"
             />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            <button class="btn btn-danger my-2 my-sm-0" type="submit">
               Buscar
             </button>
           </form>
