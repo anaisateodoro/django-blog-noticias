@@ -43,7 +43,8 @@
                         </div>
                         <button type="submit" class="btn btn-danger">Adicionar Postagem</button>
                     </form>
-                    <form action="{% url 'logout_autor' %}" method="post">    
+                    <form action="{% url 'logout_autor' %}" method="post">
+                        {% csrf_token %}    
                         <button type="submit" class="btn btn-primary mt-3">Logout</button>
                     </form>
                 </div>
