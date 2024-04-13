@@ -51,7 +51,7 @@ class Contato(models.Model):
     nome = models.CharField(max_length=100)
     data = models.DateTimeField(auto_now_add=True)
     email = models.EmailField(verbose_name='email')
-    telefone = models.CharField(null=True, blank=True)
+    telefone = models.CharField(max_length=30)
     assunto = models.CharField(max_length=100)
     mensagem = models.TextField(verbose_name='deixe sua mensagem')
 
