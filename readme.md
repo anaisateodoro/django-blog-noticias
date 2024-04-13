@@ -1,11 +1,11 @@
-# Desafio Final - 🚧Blog de Notícias | Squad Grace-Hopper
+# Desafio Final - Blog de Notícias | Squad Grace-Hopper
 
-![Badge em Desenvolvimento](https://img.shields.io/static/v1?label=STATUS&message=CONSTRU%C3%87%C3%83O&color=GREEN&style=for-the-badge)
+![Badge em Desenvolvimento](https://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge)
 
 ### 🚀 Navegação do readme:
 
 - [Organização da equipe](#organização-da-equipe-👍)
-- [Tecnologias utilizadas [Back-end | Front-end]](#tecnologias-utilizadas-back-end--front-end🎯)
+- [Tecnologias utilizadas](#Tecnologias utilizadas [Back-end | Front-end]🎯)
 - [Requisitos Mínimos](#requisitos-mínimos-🧭)
 - [Estrutura do Diretório com os arquivos e pastas](#estrutura-do-diretório-arquivos-e-pastas)
 - [Instalação e criação do Ambiente Virtual](#instalação-e-criação-de-ambiente-virtual-🔧)
@@ -22,12 +22,10 @@
 
 # Organização da equipe 👍
 
-- Realizamos uma reunião inicial de planejamento para discutir o escopo do projeto, requisitos e definir metas e prioridades.
-- Utilizaremos a ferramenta do Trello com uso do Kanban para manter a equipe na mesma página e seguir o trabalho com fluidez na organização do projeto.
-- Criamos diferentes listas para organizar as tarefas, como "Estruturas e Requisitos", "Backlog", "Doing", "Pendente","Blocked" e "Done".
-- Estabelecemos aqui o [quadro do projeto no Trello 💡](https://trello.com/b/AiO9uDdS/desafiofinalsquadgracehopper).
-
-- A data final de entrega do projeto é dia 12/04 e estamos trabalhando para garantir que todas as tarefas sejam concluídas até essa data.
+- Realizamos uma reunião inicial de planejamento para discutir o escopo e requisitos do projeto, além de definir metas e prioridades.
+- Utilizaremos para o gerenciamento do projeto a ferramenta do Trello, na visualização das tasks com uso do quadro Kanban e as Sprint e Dayli Meeting com o metodolo Ágil do Scrum, afim de manter a equipe focada em entregas contínuas e fluidez da organização do Blog de Notícias.
+- Nesse quadro kanban, criamos diferentes listas para organizar as tarefas, como "Estruturas e Requisitos", "Backlog", "Doing", "Pendente","Blocked", "Testes", "Features" e "Done".
+- Estabelecemos o quadro do projeto no -> [Trello 💡](https://trello.com/b/AiO9uDdS/desafiofinalsquadgracehopper).
 
 # Tecnologias utilizadas [Back-end | Front-end]🎯
 
@@ -36,7 +34,8 @@
 - Django
 - HTML
 - CSS
-- Bootstrap
+- Bootstrap 4
+- PostgreSQL
 
 # Requisitos Mínimos 🧭
 
@@ -113,89 +112,21 @@ onde efetuou o clone do repositório.
 <br>
 # Padrões dos commits - Tipo e descrição 💻
 
-<table>
-  <thead>
-    <tr>
-      <th>Comando Git</th>
-      <th>Resultado no GitHub</th>
-    </tr>
-  </thead>
- <tbody>
-    <tr>
-      <td>
-        <code>git commit -m ":tada: Commit inicial"</code>
-      </td>
-      <td>🎉 Commit inicial</td>
-    </tr>
-    <tr>
-      <td>
-        <code>git commit -m ":books: docs: Atualização do README"</code>
-      </td>
-      <td>📚 docs: Atualização do README</td>
-    </tr>
-    <tr>
-      <td>
-        <code>git commit -m ":bug: fix: Loop infinito na linha 50"</code>
-      </td>
-      <td>🐛 fix: linha 10</td>
-    </tr>
-    <tr>
-      <td>
-        <code>git commit -m ":sparkles: feat: Página de login"</code>
-      </td>
-      <td>✨ feat: Página de login</td>
-    </tr>
-    <tr>
-      <td>
-        <code>git commit -m ":bricks: ci: Modificação no Dockerfile"</code>
-      </td>
-      <td>🧱 ci: Modificação no Dockerfile</td>
-    </tr>
-    <tr>
-      <td>
-        <code>git commit -m ":recycle: refactor: Passando para functions"</code>
-      </td>
-      <td>♻️ refactor: Passando para functions</td>
-    </tr>
-    <tr>
-      <td>
-        <code>git commit -m ":zap: perf: Melhoria no tempo de resposta"</code>
-      </td>
-      <td>⚡ perf: Melhoria no tempo de resposta</td>
-    </tr>
-    <tr>
-      <td>
-        <code>git commit -m ":boom: fix: Revertendo mudanças ineficientes"</code>
-      </td>
-      <td>💥 fix: Revertendo mudanças ineficientes</td>
-    </tr>
-    <tr>
-      <td>
-        <code>git commit -m ":lipstick: feat: Estilização CSS do formulário"</code>
-      </td>
-      <td>💄 feat: Estilização CSS do formulário</td>
-    </tr>
-    <tr>
-      <td>
-        <code>git commit -m ":test_tube: test: Criando novo teste"</code>
-      </td>
-      <td>🧪 test: Criando novo teste</td>
-    </tr>
-    <tr>
-      <td>
-        <code>git commit -m ":bulb: docs: Comentários sobre a função LoremIpsum( )"</code>
-      </td>
-      <td>💡 docs: Comentários sobre a função LoremIpsum( )</td>
-    </tr>
-    <tr>
- </thead>
-  </tbody>
-</table>
+| Comando Git | Resultado no GitHub |
+|-------------|---------------------|
+| `git commit -m ":tada: Commit inicial"` | 🎉 Commit inicial |
+| `git commit -m ":books: docs: Atualização do README"` | 📚 docs: Atualização do README |
+| `git commit -m ":bug: fix: Loop infinito na linha 50"` | 🐛 fix: linha 10 |
+| `git commit -m ":sparkles: feat: Página de login"` | ✨ feat: Página de login |
+| `git commit -m ":bricks: ci: Modificação no file"` | 🧱 ci: Modificação no file |
+| `git commit -m ":recycle: refactor: Passando para functions"` | ♻️ refactor: Passando para functions |
+| `git commit -m ":zap: perf: Melhoria no tempo de resposta"` | ⚡ perf: Melhoria no tempo de resposta |
 
 # Apresentação do Projeto
 
-- Slides 📊: [Apresentação Google]()
-- Vídeo da apresentação 🎥: [YouTube]()
+- Slides 📊: [Apresentação Slides - Canvas](https://www.canva.com/design/DAGCJzplkOs/oOyyCzquOKS19Fd6CYn90A/edit?utm_content=DAGCJzplkOs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+)
+- Vídeo da apresentação 🎥: [YouTube](https://youtu.be/AxdWmpDjb_w)
 
 # Squad Grace Hopper
 
